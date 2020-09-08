@@ -4,15 +4,13 @@
   vars:
     branch: https://github.com/prosto-artem/internship/tree/master
     directory: GitHub_repo
-    version: 1.0-commit0 
+    old_version: 1.0-commit0
+    nev_version: 1.0-commit1 
 
   tasks:
          - command: sudo mkdir {{ directory }}
          - command: git remote add origin {{ branch }}
          - command: sudo git clone {{ branch }} {{ directory }}
-         - command: echo '{
-                           "version"="1.0-commit1"
-                          }' > version.json 
-                            
+         - command: sed -i -e s/{{ old_version }}/{{ new_version}}/g
          - command: sudo git commit -m "Commit file version" 
          - command: sudo git push origin master
