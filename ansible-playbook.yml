@@ -2,10 +2,13 @@
   name: Clone GitHub repo
   hosts: localhost
   vars:
+    branch: https://github.com/prosto-artem/internship/tree/master
     directory: GitHub_repo
+    version: "{{ jsonVar | json_query(version) }}"
+
   tasks:
          - command: sudo mkdir {{ directory }}
-         - command: sudo git clone "https://github.com/prosto-artem/internship/tree/master" {{ directory }} 
-           vars: 
-             version: "{{ jsonVar | json_query(version) }}"
+         - command: git remote add origin {{ branch }}
+         - command: sudo git clone {{ branch }} {{ directory }} 
          - command: npm version patch
+         - command: sudo git push origin master
