@@ -1,0 +1,11 @@
+- 
+  name: Clone GitHub repo
+  hosts: localhost
+  vars:
+    directory: GitHub_repo
+  tasks:
+         - command: sudo mkdir {{ directory }}
+         - command: sudo git clone "https://github.com/prosto-artem/internship/tree/master" {{ directory }} 
+           vars: 
+             version: "{{ jsonVar | json_query(version) }}"
+         - command: npm version patch
