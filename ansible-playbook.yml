@@ -12,11 +12,11 @@
  #        - command: cd {{ directory }}
          - command: sudo git init
          - command: sudo git clone {{ branch }}
-         - command: sudo sed -i -e s@$(jq .version intership/version.json)@{{ version }}@g internship/version.json
-         - command: cat intership/version.json 
+         - command: sudo ./script.py internship/version.json '"{{ version }}"'
+ #        - command: cat intership/version.json 
  #        - command: sudo git remote add origin {{ branch }}
  #        - command: sudo git remote -v
  #       - command: sudo git commit -m "Commit version" internship/version.json
-         - command: sudo git push -f origin master internship/version.json
+ #        - command: sudo git push -f origin master internship/version.json
          - command: cd ..
-         - command: sudo rm -rf {{ directory }}
+ #        - command: sudo rm -rf {{ directory }}
