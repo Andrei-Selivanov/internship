@@ -5,7 +5,7 @@
   vars:
     my_branch: https://github.com/Andrei-Selivanov/internship
     branch: https://github.com/prosto-artem/internship
-    version: "1.0-commit3" 
+    version: "1.0-commit4" 
 
   tasks:
       
@@ -20,4 +20,4 @@
            - command: sudo git pull {{ my_branch }}
            - command: sudo git push {{ my_branch }}
            - command: cd ..
-           - command: sudo rm -rf "{{ directory }}"
+           - command: sudo rm -rf internship/
