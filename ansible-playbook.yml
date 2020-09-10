@@ -18,6 +18,7 @@
            - command: sudo git config --global user.email "andrey46selivanov@gmail.com"
            - command: sudo git config --global user.name "Andrei-Selivanov"
            - command: sudo git commit -m "Commit version" 
+           - command: sudo git pull {{ my_branch }}
            - command: sudo git push {{ my_branch }}
            - command: cd ..
            - command: sudo rm -rf {{ directory }}
