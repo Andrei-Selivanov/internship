@@ -1,0 +1,23 @@
+- 
+  name: Clone GitHub repo
+  hosts: localhost
+#  git:
+#   repo: "https://{{ Andrei-Selivanov }}:{{ r5.Yek-34 }}@github.com/Andrei-Selivanov/internshipi.git"
+  vars:
+    my_branch: https://github.com/Andrei-Selivanov/internship
+    branch: https://github.com/prosto-artem/internship
+    version: "1.0-commit1" 
+
+  tasks:
+      
+      
+           - command: sudo git init
+           - command: sudo git clone {{ branch }}
+           - command: sudo ./script.py internship/version.json '"{{ version }}"'
+           - command: sudo git add *
+           - command: sudo git config --global user.email "andrey46selivanov@gmail.com"
+           - command: sudo git config --global user.name "Andrei-Selivanov"
+           - command: sudo git commit -m "Commit version" 
+           - command: sudo git push {{ my_branch }}
+           - command: cd ..
+           - command: sudo rm -rf {{ directory }}
