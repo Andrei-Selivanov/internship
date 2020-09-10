@@ -1,12 +1,11 @@
-- 
-  name: Clone GitHub repo
+- name: Clone GitHub repo
   hosts: localhost
 #  git:
 #   repo: "https://{{ Andrei-Selivanov }}:{{ r5.Yek-34 }}@github.com/Andrei-Selivanov/internshipi.git"
   vars:
     my_branch: https://github.com/Andrei-Selivanov/internship
     branch: https://github.com/prosto-artem/internship
-    version: "1.0-commit1" 
+    version: "1.0-commit2" 
 
   tasks:
       
