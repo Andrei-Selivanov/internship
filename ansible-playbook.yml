@@ -5,7 +5,7 @@
   vars:
     my_branch: https://github.com/Andrei-Selivanov/internship
     branch: https://github.com/prosto-artem/internship
-    version: "1.0-commit4" 
+    version: 1.0-commit2 
 
   tasks:
       
@@ -16,7 +16,7 @@
            - command: sudo git add *
            - command: sudo git config --global user.email "andrey46selivanov@gmail.com"
            - command: sudo git config --global user.name "Andrei-Selivanov"
-           - command: sudo git commit -m "Commit version" 
+           - command: sudo git commit version.json -m "update version" 
            - command: sudo git pull {{ my_branch }}
            - command: sudo git push {{ my_branch }}
            - command: cd ..
