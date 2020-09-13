@@ -5,7 +5,7 @@
   vars:
     my_branch: https://github.com/Andrei-Selivanov/internship
     branch: https://github.com/prosto-artem/internship
-    version: 1.0-commit2 
+    version: 1.0-commit3 
 
   tasks:
       
@@ -13,11 +13,13 @@
            - command: sudo git init
            - command: sudo git clone {{ branch }}
            - command: sudo ./script.py internship/version.json '"{{ version }}"'
-           - command: cd internship/
+           - command: cd /home/osboxes/ansible/internship/
+           - command: sudo git fetch origin
            - command: sudo git add * 
            - command: sudo git config --global user.email "andrey46selivanov@gmail.com"
            - command: sudo git config --global user.name "Andrei-Selivanov"
-           - command: sudo git commit -m "update version"  
+           - command: sudo git commit -am "update version"  
+           - command: sudo git merge origin/master
            - command: sudo git pull {{ my_branch }}
            - command: sudo git push {{ my_branch }}
            - command: cd ..
