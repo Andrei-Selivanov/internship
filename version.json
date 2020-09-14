@@ -1,3 +1,11 @@
 {
+<<<<<<< HEAD
   "version": "1.0-commit5"
+=======
+<<<<<<< HEAD
+  "version": "\"1.0-commit3\""
+=======
+  "version": "\"1.0-commit2\""
+>>>>>>> 0b4641434330b6e65c61548006fdb1ac1b1d85a5
+>>>>>>> a34a8a631c013d8ea9983c58a3a656dbf86652db
 }
