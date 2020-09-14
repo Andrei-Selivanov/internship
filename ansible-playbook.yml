@@ -1,11 +1,10 @@
 - name: Clone GitHub repo
   hosts: localhost
-#  git:
-#   repo: "https://{{ Andrei-Selivanov }}:{{ r5.Yek-34 }}@github.com/Andrei-Selivanov/internshipi.git"
   vars:
     my_branch: https://github.com/Andrei-Selivanov/internship
     branch: https://github.com/prosto-artem/internship
     version: 1.0-commit3 
+    directory: /home/osboxes/ansible/internship
 
   tasks:
       
@@ -13,14 +12,14 @@
            - command: sudo git init
            - command: sudo git clone {{ branch }}
            - command: sudo ./script.py internship/version.json '"{{ version }}"'
-           - command: cd /home/osboxes/ansible/internship/
+           - command: cd internship/
            - command: sudo git fetch origin
-           - command: sudo git add * 
+           - command: chdir={{ directory }} sudo git add version.json 
            - command: sudo git config --global user.email "andrey46selivanov@gmail.com"
            - command: sudo git config --global user.name "Andrei-Selivanov"
-           - command: sudo git commit -am "update version"  
-           - command: sudo git merge origin/master
-           - command: sudo git pull {{ my_branch }}
-           - command: sudo git push {{ my_branch }}
+           - command: chdir={{ directory }} sudo git commit -am "update version"  
+#           - command: chdir={{ directory }} sudo git merge origin/master
+           - command: chdir={{ directory }} sudo git pull {{ my_branch }}
+           - command: chdir={{ directory }} sudo git push {{ my_branch }}
            - command: cd ..
            - command: sudo rm -rf internship/
