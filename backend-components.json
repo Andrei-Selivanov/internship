@@ -1,0 +1,902 @@
+{
+  "backend_components": {
+    "java": [
+      {
+        "artifact_id": "Vtb.IntegrationMdm.CS.Organization",
+        "group_id": "Vtb.IntegrationMdm.CS.Organization",
+        "name": "Vtb.IntegrationMdm.CS.Organization",
+        "version": "14.6.89"
+      },
+      {
+        "artifact_id": "Vtb.Integration.CS.ExtendedClientProfile",
+        "group_id": "Vtb.Integration.CS.ExtendedClientProfile",
+        "name": "Vtb.Integration.CS.ExtendedClientProfile",
+        "version": "14.5.8"
+      },
+      {
+        "artifact_id": "DictionaryMapperService",
+        "group_id": "Vtb.IntegrationMdm.Usbs.Services.DictionaryMapper",
+        "name": "Vtb.IntegrationMdm.Usbs.Services.DictionaryMapper",
+        "version": "0.0.2"
+      },
+      {
+        "artifact_id": "cross-sales-api-gateway",
+        "group_id": "ru.vtb",
+        "name": "cross-sales-api-gateway",
+        "version": "0.0.1"
+      },
+      {
+        "artifact_id": "cross-sales-npf-domain-service",
+        "group_id": "ru.vtb",
+        "name": "cross-sales-npf-domain-service",
+        "version": "0.0.1"
+      },
+      {
+        "artifact_id": "cross-sales-persistence-service",
+        "group_id": "ru.vtb",
+        "name": "cross-sales-persistence-service",
+        "version": "0.0.1"
+      },
+      {
+        "artifact_id": "cross-sales-prime-privilege-domain-service",
+        "group_id": "ru.vtb",
+        "name": "cross-sales-prime-privilege-domain-service",
+        "version": "0.0.1"
+      },
+      {
+        "artifact_id": "cross-sales-vtb-front-adapter",
+        "group_id": "ru.vtb",
+        "name": "cross-sales-vtb-front-adapter",
+        "version": "0.0.1"
+      }
+    ],
+    "load_testing": [
+      {
+        "name": "VTB.LoadTesting",
+        "version": "1.0.0-build14"
+      }
+    ],
+    "minicards_components": [
+      {
+        "name": "Vtb.Cbp.Web.Minicards.Assigns",
+        "version": "12.2.0-build5"
+      },
+      {
+        "name": "Vtb.Cbp.Web.Minicards.ClientsAssigns",
+        "version": "12.6.0-build13"
+      },
+      {
+        "name": "Vtb.Cbp.Web.Minicards.ClientGroups",
+        "version": "12.2.0-build17"
+      },
+      {
+        "name": "Vtb.Cbp.Web.Minicards.Employees",
+        "version": "12.2.0-build9"
+      },
+      {
+        "name": "Vtb.Cbp.Web.Minicards.Minicards",
+        "version": "12.2.0-build3"
+      },
+      {
+        "name": "Vtb.Cbp.Web.Minicards.MinicardsWithAssigns",
+        "version": "12.6.0-build3"
+      },
+      {
+        "name": "Vtb.Cbp.Web.Minicards.Persons",
+        "version": "13.7.0-build8"
+      },
+      {
+        "name": "Vtb.Cbp.Web.Minicards.Spark",
+        "version": "12.2.0-build8"
+      },
+      {
+        "name": "Vtb.Cbp.Web.Minicards.Treatments",
+        "version": "12.2.0-build3"
+      }
+    ],
+    "net_core": [
+      {
+        "app_name": "common-notifications",
+        "name": "VTB.CBP.CommonNotifications.Api",
+        "version": "14.6.76"
+      },
+      {
+        "app_name": "common-api",
+        "name": "Vtb.Cbp.Web.Api.CommonApi",
+        "version": "14.5.0-build55"
+      },
+      {
+        "app_name": "agents-api",
+        "name": "Vtb.Cbp.Web.Api.Agents",
+        "version": "14.5.0-build568"
+      },
+      {
+        "app_name": "funding-api",
+        "name": "Vtb.Cbp.Web.Api.Funding",
+        "version": "14.6.837"
+      },
+      {
+        "app_name": "mailbox",
+        "name": "Vtb.Cbp.Web.Api.Mailbox",
+        "version": "13.2.39"
+      },
+      {
+        "app_name": "aip",
+        "name": "Vtb.Cbp.Web.Api.Aip",
+        "version": "13.3.582"
+      },
+      {
+        "app_name": "aip-smb-api",
+        "name": "Vtb.Cbp.Web.Api.Aip.Smb",
+        "version": "14.5.621"
+      },
+      {
+        "app_name": "aip-smb-products-api",
+        "name": "Vtb.Cbp.Web.Api.Aip.Smb.Products",
+        "version": "14.5.610"
+      },
+      {
+        "app_name": "aip-smb-scenarios-api",
+        "name": "Vtb.Cbp.Web.Api.Aip.Smb.Scenarios",
+        "version": "14.5.649"
+      },
+      {
+        "app_name": "contacts-api",
+        "name": "Vtb.Cbp.Web.Api.Contacts",
+        "version": "14.6.64"
+      },
+      {
+        "app_name": "adapi",
+        "name": "Vtb.Cbp.Web.Api.AdapiIIS",
+        "version": "14.5.0"
+      },
+      {
+        "app_name": "cross-sales",
+        "name": "Vtb.Cbp.Web.Api.CrossSalesIIS",
+        "version": "14.6.0"
+      },
+      {
+        "app_name": "csc",
+        "name": "Vtb.Cbp.Web.Api.CscIIS",
+        "version": "13.5.0"
+      },
+      {
+        "app_name": "api",
+        "name": "Vtb.Cbp.Web.Api.Csc.ApiIIS",
+        "parent_urls": [
+          "/csc"
+        ],
+        "version": "13.5.0"
+      },
+      {
+        "app_name": "mailbox",
+        "name": "Vtb.Cbp.Web.Api.Csc.Mailbox",
+        "parent_urls": [
+          "/csc/api"
+        ],
+        "version": "14.6.116"
+      },
+      {
+        "app_name": "desktop",
+        "name": "Vtb.Cbp.Web.Api.Csc.Desktop",
+        "parent_urls": [
+          "/csc/api"
+        ],
+        "version": "14.6.116"
+      },
+      {
+        "app_name": "notifications",
+        "name": "Vtb.Cbp.Web.Api.Csc.Notifications",
+        "parent_urls": [
+          "/csc/api"
+        ],
+        "version": "14.6.116"
+      },
+      {
+        "app_name": "minicards",
+        "name": "Vtb.Cbp.Web.Minicards.MinicardsIIS",
+        "version": "12.4.0"
+      },
+      {
+        "app_name": "reports-api",
+        "name": "Vtb.Cbp.Web.Api.Reports",
+        "version": "14.6.956"
+      },
+      {
+        "app_name": "reports-by-api",
+        "name": "Vtb.Cbp.Web.Api.Reports-By",
+        "version": "14.6.48"
+      },
+      {
+        "app_name": "report-dbo-api",
+        "name": "Vtb.Cbp.Web.Api.ReportDbo",
+        "version": "14.5.45"
+      },
+      {
+        "app_name": "reports-home-api",
+        "name": "Vtb.Cbp.Web.Api.Reports-Home",
+        "version": "14.6.22"
+      },
+      {
+        "app_name": "reports-io-api",
+        "name": "Vtb.Cbp.Web.Api.Reports-Io",
+        "version": "14.2.21"
+      },
+      {
+        "app_name": "reports-gtb-api",
+        "name": "Vtb.Cbp.Web.Api.Reports-Gtb",
+        "version": "14.6.689"
+      },
+      {
+        "app_name": "sms-gateway-mock",
+        "name": "Vtb.Cbp.Web.Api.SmsGateway",
+        "version": "14.5.38"
+      },
+      {
+        "app_name": "v6",
+        "name": "Vtb.Integration.V6.WebAPI",
+        "parent_urls": [
+          "/api",
+          "/adapi/api"
+        ],
+        "version": "14.5.102"
+      },
+      {
+        "app_name": "v7",
+        "name": "Vtb.Integration.V7.WebAPI",
+        "parent_urls": [
+          "/api",
+          "/adapi/api"
+        ],
+        "version": "14.5.146"
+      },
+      {
+        "app_name": "tessa",
+        "name": "Vtb.Integration.Tessa.WebAPI",
+        "parent_urls": [
+          "/api"
+        ],
+        "version": "14.2.1"
+      },
+      {
+        "app_name": "dbo2",
+        "name": "Vtb.Integration.Dbo2.WebAPI",
+        "parent_urls": [
+          "/api"
+        ],
+        "version": "13.1.17"
+      },
+      {
+        "app_name": "edk",
+        "name": "Vtb.Integration.Edk.WebAPI",
+        "version": "13.3.48"
+      },
+      {
+        "app_name": "account-service",
+        "name": "Vtb.Cbp.Web.Api.AccountService",
+        "version": "14.5.67"
+      },
+      {
+        "app_name": "calc-pek-pkr",
+        "name": "Vtb.Cbp.Services.Calculators.PekPkr",
+        "version": "13.7.13"
+      },
+      {
+        "app_name": "dictionary-service",
+        "name": "Vtb.Cbp.Services.DictionaryService",
+        "version": "13.7.13"
+      }
+    ],
+    "net_framework": [
+      {
+        "app_name": "authoam",
+        "name": "Vtb.Cbp.Web.Api.OamApi",
+        "version": "13.4.0-build10"
+      },
+      {
+        "app_name": "api",
+        "name": "Vtb.Cbp.Web.Api.MainApi",
+        "parent_urls": [
+          "",
+          "/adapi"
+        ],
+        "version": "14.6.0-build1108"
+      },
+      {
+        "app_name": "auth",
+        "name": "Vtb.Cbp.Web.Api.AuthApi",
+        "version": "13.6.0-build46"
+      },
+      {
+        "app_name": "leads-api",
+        "name": "Vtb.Cbp.Web.Api.LeadsApi",
+        "version": "14.6.0-build575"
+      },
+      {
+        "app_name": "mockservice-api",
+        "name": "Vtb.Cbp.Web.Api.MockService",
+        "version": "13.5.0.69"
+      },
+      {
+        "app_name": "fp",
+        "name": "Vtb.Cbp.Web.Api.Fp",
+        "parent_urls": [
+          "/api"
+        ],
+        "version": "14.6.694"
+      },
+      {
+        "app_name": "fp-gauss",
+        "name": "Vtb.Cbp.Web.Api.FpGauss",
+        "parent_urls": [
+          "/api"
+        ],
+        "version": "14.6.513"
+      },
+      {
+        "app_name": "dc",
+        "name": "Vtb.Cbp.Web.Api.Dc",
+        "version": "14.6.351"
+      }
+    ],
+    "services": [
+      {
+        "description": "Lead routing service",
+        "exe_name": "VTB.Leads.Services.LeadRouting.Service",
+        "name": "Vtb.Cbp.Services.LeadRouting",
+        "version": "14.5.2"
+      },
+      {
+        "description": "Leads deduplication service",
+        "exe_name": "VTB.Leads.Services.Deduplication.Service",
+        "name": "Vtb.Cbp.Services.LeadsDeduplication",
+        "version": "14.5.24"
+      },
+      {
+        "description": "Mock verify client service.",
+        "exe_name": "Vtb.Leads.MockServices.Mdm.Clients.ConsoleHost",
+        "name": "Vtb.Cbp.Web.Api.MockClientVerifyService",
+        "version": "14.5.46"
+      },
+      {
+        "description": "Leads external service",
+        "exe_name": "Vtb.Leads.Services.ExternalApi",
+        "name": "Vtb.Cbp.Web.Api.LeadsExternalService",
+        "version": "14.2.41"
+      },
+      {
+        "description": "Leads client validator service",
+        "exe_name": "VTB.Leads.Services.ClientValidator.Service",
+        "name": "Vtb.Cbp.Services.LeadsClientValidator",
+        "version": "14.5.27"
+      },
+      {
+        "description": "AvayaPds schedule.",
+        "exe_name": "Vtb.Leads.Integration.AvayaPds.SchedulerService",
+        "name": "Vtb.Cbp.Integration.AvayaPds.Scheduler",
+        "version": "14.1.0.102"
+      },
+      {
+        "description": "Scheduler service for leadgeneration and marketing.",
+        "exe_name": "VTB.ClientPortal.SchedulerService",
+        "name": "Vtb.Cbp.WindowsService.LeadsSchedulerService",
+        "version": "14.6.0-build439"
+      },
+      {
+        "description": "Frontend-logger",
+        "exe_name": "VTB.Portal.Api.Logger",
+        "name": "Vtb.Cbp.WindowsService.FrontendLogger",
+        "version": "12.4.0-build30"
+      },
+      {
+        "description": "Gauss service",
+        "exe_name": "CustomerData.GaussWindowsService",
+        "name": "Vtb.Cbp.WindowsService.Gauss",
+        "version": "14.6.471"
+      },
+      {
+        "description": "Base scheduler service",
+        "exe_name": "VTB.ClientPortal.SchedulerService",
+        "name": "Vtb.Cbp.Services.Scheduler",
+        "version": "14.6.154"
+      },
+      {
+        "description": "Service which checks if client exists in black lists",
+        "exe_name": "Vtb.WebServices.UmboService.Host",
+        "name": "Vtb.Cbp.Services.UmboService",
+        "topshelf": true,
+        "version": "12.1.0"
+      },
+      {
+        "description": "Functional groups",
+        "exe_name": "VTB.ClientPortal.FuncAuth.Host",
+        "name": "Vtb.Cbp.Services.FuncAuth",
+        "topshelf": true,
+        "version": "14.6.1222"
+      },
+      {
+        "description": "Service for getting dictionaries by code",
+        "exe_name": "Vtb.Mdm.Services.Dictionaries.Host",
+        "name": "Vtb.Mdm.Services.Dictionaries.Host",
+        "version": "14.4.0-commit2"
+      },
+      {
+        "description": "Service which gets clients data from FNS.",
+        "exe_name": "Vtb.Mdm.Services.FnsGateway.Host",
+        "name": "Vtb.Mdm.Services.FnsGateway.Host",
+        "version": "14.2.0-commit3"
+      },
+      {
+        "description": "Service which provides access to ERK-client's data",
+        "exe_name": "Vtb.Mdm.Services.Erk.Host",
+        "name": "Vtb.Mdm.Services.Erk.Host",
+        "version": "14.5.0-commit2"
+      },
+      {
+        "description": "Service which provides validation for requisites",
+        "exe_name": "Vtb.Mdm.Services.Validators.Host",
+        "name": "Vtb.Mdm.Services.Validators.Host",
+        "version": "13.6.0-commit32"
+      },
+      {
+        "description": "Service which provides information about clients accounts from OSNOR",
+        "exe_name": "Vtb.Mdm.Services.OsnorGateway.Host",
+        "name": "Vtb.Mdm.Services.OsnorGateway.Host",
+        "version": "12.6.0-commit0"
+      },
+      {
+        "description": "Service which provides client's data from ROSSTAT",
+        "exe_name": "Vtb.Mdm.Services.RosstatGateway.Host",
+        "name": "Vtb.Mdm.Services.RosstatGateway.Host",
+        "version": "12.2.0-commit0"
+      },
+      {
+        "description": "Service which provides client's data from SPARK",
+        "exe_name": "Vtb.Mdm.Services.SparkGateway.Host",
+        "name": "Vtb.Mdm.Services.SparkGateway.Host",
+        "version": "14.2.0-commit10"
+      },
+      {
+        "description": "Service which allows to get and set user's notifications and subscriptions: SMS, EMAIL, PUSH.",
+        "exe_name": "Vtb.Mdm.Services.UserSettings.Host",
+        "name": "Vtb.Mdm.Services.UserSettings.Host",
+        "version": "12.2.1"
+      },
+      {
+        "description": "Service which handles clients data",
+        "exe_name": "Vtb.Mdm.Services.Clients.Host",
+        "name": "Vtb.Mdm.Services.Clients.Host",
+        "version": "14.5.0-commit5"
+      },
+      {
+        "description": "Service which search client by requisites",
+        "exe_name": "Vtb.Mdm.Services.Clients.Search.Host",
+        "name": "Vtb.Mdm.Services.Clients.Search.Host",
+        "version": "14.3.0-commit2"
+      },
+      {
+        "description": "MDM UI Gateway service",
+        "exe_name": "Vtb.Mdm.Services.UIGateway.Host",
+        "name": "Vtb.Mdm.Services.UIGateway.Host",
+        "version": "14.5.0-commit11"
+      },
+      {
+        "description": "OCC - proxy",
+        "exe_name": "Vtb.Acc.Api",
+        "name": "Vtb.Cbp.WindowsService.OccProxy.Host",
+        "topshelf": true,
+        "version": "14.4.0.32"
+      },
+      {
+        "description": "MQ messages services for EDC",
+        "exe_name": "VTB.ClientPortal.Integration.MQWinService",
+        "name": "Vtb.Integration.MqServices.Edk",
+        "version": "13.6.13"
+      },
+      {
+        "description": "MQ messages services for DBO",
+        "exe_name": "VTB.ClientPortal.Integration.MQWinService",
+        "name": "Vtb.Integration.MqServices.Dbo2Accounts",
+        "version": "14.3.9"
+      },
+      {
+        "description": "MQ messages services DBO LK",
+        "exe_name": "VTB.ClientPortal.Integration.MQWinService",
+        "name": "Vtb.Integration.MqServices.OldLkService",
+        "version": "14.3.0"
+      },
+      {
+        "description": "MQ messages services for DBO",
+        "exe_name": "VTB.ClientPortal.Integration.MQWinService",
+        "name": "Vtb.Integration.MqServices.OldDboService",
+        "version": "14.3.0"
+      },
+      {
+        "description": "Edc etalon changes notification service",
+        "exe_name": "Vtb.Integration.MdmEdkNotifyService",
+        "name": "Vtb.Integration.MdmEdkNotify",
+        "version": "13.4.22"
+      },
+      {
+        "description": "Dbo accounts changes notification service ",
+        "exe_name": "Vtb.Integration.DboAccountsNotifyService",
+        "name": "Vtb.Integration.AccountsNotifyService",
+        "version": "14.3.9"
+      },
+      {
+        "description": "Accounts changes tracking service",
+        "exe_name": "Vtb.Integration.DboAccountsTracker",
+        "name": "Vtb.Integration.AccountsTracker",
+        "version": "14.3.19"
+      },
+      {
+        "description": "Api for agents mobile devices.",
+        "exe_name": "Vtb.Services.FieldService.Host",
+        "name": "Vtb.Services.FieldService.Host",
+        "version": "12.4.30"
+      },
+      {
+        "description": "Api service for adding potential lead clients",
+        "exe_name": "Vtb.Services.LeadGateway.Host",
+        "name": "Vtb.Services.LeadGateway.Host",
+        "version": "14.6.112"
+      },
+      {
+        "description": "Service for creating and updating leads from any sources",
+        "exe_name": "Vtb.Leads.WriteContext.Host",
+        "name": "Vtb.Leads.WriteContext.Host",
+        "version": "14.6.100"
+      },
+      {
+        "description": "Additional Service for writeContext",
+        "exe_name": "Vtb.Leads.WriteContext.TestClientApplication",
+        "name": "Vtb.Leads.WriteContext.TestClientApplication",
+        "version": "1.0.3"
+      },
+      {
+        "description": "Email service",
+        "exe_name": "EmailService",
+        "name": "Vtb.Cbp.WindowsService.EmailService",
+        "version": "13.6.16"
+      },
+      {
+        "description": "Salary projects service",
+        "exe_name": "VTB.SalaryProjects.ApplicationService.Api",
+        "name": "VTB.SalaryProjects.ApplicationService",
+        "version": "14.6.1053"
+      },
+      {
+        "description": "Workflow service",
+        "exe_name": "VTB.ClientPortal.WorkflowService.Api",
+        "name": "Vtb.Cbp.Services.WorkflowService",
+        "version": "13.7.42"
+      },
+      {
+        "description": "Integration service between web-client and avaya",
+        "exe_name": "CtiService",
+        "name": "Vtb.Cbp.Services.Cti",
+        "version": "14.6.92"
+      },
+      {
+        "description": "Service which allows user to create new tech groups",
+        "exe_name": "Vtb.Clients.Services.TechGroup.Host",
+        "name": "Vtb.Clients.Services.TechGroup.Host",
+        "version": "14.5.62"
+      },
+      {
+        "description": "File service",
+        "exe_name": "SvFiles",
+        "name": "Vtb.Cbp.Services.Files",
+        "version": "13.5.32"
+      },
+      {
+        "description": "Service which generates reports for offline usage",
+        "exe_name": "Vtb.Rg.Api",
+        "name": "Vtb.Cbp.Services.ReportsGenerator",
+        "version": "14.6.57"
+      },
+      {
+        "description": "Agents host service",
+        "exe_name": "Vtb.Services.Agents.Host",
+        "name": "Vtb.Cbp.Services.Agents.Host",
+        "version": "14.5.427.478"
+      },
+      {
+        "description": "Integration service SMGOZ",
+        "exe_name": "Vtb.Integration.SmgozService",
+        "name": "Vtb.Integration.WinServices.SmgozService",
+        "version": "12.6.2"
+      },
+      {
+        "description": "Csc mq integration",
+        "exe_name": "Vtb.Gtb.Chat",
+        "name": "Vtb.CscMqIntegration",
+        "version": "14.6.87"
+      },
+      {
+        "description": "Clients Sanctions Service",
+        "exe_name": "Vtb.Clients.Services.Sanctions.Host",
+        "name": "Vtb.Clients.Services.Sanctions.Host",
+        "version": "14.5.33"
+      },
+      {
+        "description": "Clients VipAndPriority Service",
+        "exe_name": "Vtb.Clients.Services.VipAndPriority.Host",
+        "name": "Vtb.Clients.Services.VipAndPriority.Host",
+        "version": "14.3.158"
+      },
+      {
+        "description": "Clients Linked Service",
+        "exe_name": "Vtb.Clients.Services.LinkedClients.Host",
+        "name": "Vtb.Clients.Services.LinkedClients.Host",
+        "version": "14.6.101"
+      },
+      {
+        "description": "Importing debtors list from FTS",
+        "exe_name": "Vtb.Integration.Fts.Import",
+        "name": "Vtb.Integration.Fts.Import",
+        "version": "14.1.40"
+      },
+      {
+        "description": "API to get debtors list from FTS using the message bus",
+        "exe_name": "Vtb.Integration.Fts.Api",
+        "name": "Vtb.Integration.Fts.Api",
+        "version": "14.1.32"
+      },
+      {
+        "description": "SAP hr-system",
+        "exe_name": "Vtb.Integration.EASUP.Host",
+        "name": "Vtb.Integration.EASUP",
+        "version": "14.6.24"
+      },
+      {
+        "description": "DC ConsumerHost service",
+        "exe_name": "Vtb.CBP.Integration.DC.ConsumerHost",
+        "name": "Vtb.Cbp.Integration.DC.ConsumerHost",
+        "version": "14.6.150"
+      },
+      {
+        "description": "Service which parsing fns",
+        "exe_name": "Vtb.Integration.FnsParser.Host",
+        "name": "Vtb.Integration.FnsParser",
+        "version": "14.4.16"
+      },
+      {
+        "description": "Service which provides integration with MBank",
+        "exe_name": "Vtb.Integration.MBankClients.Host",
+        "name": "Vtb.Integration.MBankClients",
+        "version": "13.6.9"
+      },
+      {
+        "description": "Integration Clients Service",
+        "exe_name": "Vtb.Integration.ClientsService",
+        "name": "Vtb.Integration.ClientsService",
+        "version": "14.5.43"
+      },
+      {
+        "description": "Service for ElasticSearch",
+        "exe_name": "VTB.CBP.SearchAPI",
+        "name": "VTB.CBP.SearchAPI",
+        "version": "14.5.62"
+      },
+      {
+        "description": "Service for ElasticSearch update",
+        "exe_name": "VTB.CBP.Search.UpdateAPI",
+        "name": "VTB.CBP.Search.UpdateAPI",
+        "version": "14.5.37"
+      },
+      {
+        "description": "Service for export users from CBP to RabbitMQ",
+        "exe_name": "VTB.CBP.Search.BusPublisher",
+        "name": "VTB.CBP.Search.BusPublisher",
+        "version": "14.6.68"
+      },
+      {
+        "description": "Accounts Proxy Service",
+        "exe_name": "Vtb.Integration.AccountsProxyService.Host",
+        "name": "Vtb.Integration.AccountsProxyService",
+        "version": "14.6.26"
+      },
+      {
+        "description": "Salary projects plan service",
+        "exe_name": "VTB.SalaryProjects.PlanService.Api",
+        "name": "VTB.SalaryProjects.PlanService",
+        "version": "14.6.119"
+      },
+      {
+        "description": "Procurement service.",
+        "exe_name": "Vtb.Integration.Procurement.Host",
+        "name": "Vtb.Integration.Procurement.Host",
+        "version": "14.1.11"
+      },
+      {
+        "description": "DBO2 Publish service.",
+        "exe_name": "Vtb.Integration.Dbo2.Publisher.Host",
+        "name": "Vtb.Integration.Dbo2.Publisher.Host",
+        "version": "14.6.6"
+      },
+      {
+        "description": "Service for EDK",
+        "exe_name": "Vtb.Integration.EdkService",
+        "name": "Vtb.Integration.EdkService",
+        "version": "14.3.5"
+      },
+      {
+        "description": "User Login Consumer",
+        "exe_name": "VTB.CBP.UserLogin.ConsumerHost",
+        "name": "Vtb.Cbp.UserLogin.ConsumerHost",
+        "version": "14.6.90"
+      },
+      {
+        "description": "User Hierarchy Consumer Host",
+        "exe_name": "VTB.CBP.PipelineFlow.UserHierarchy.ConsumerHost",
+        "name": "VTB.CBP.PipelineFlow.UserHierarchy.ConsumerHost",
+        "version": "14.6.45"
+      },
+      {
+        "description": "Deals Cache Consumer Host",
+        "exe_name": "VTB.CBP.DealsCache.ConsumerHost",
+        "name": "VTB.CBP.DealsCache.ConsumerHost",
+        "version": "14.6.36"
+      },
+      {
+        "description": "VTB.CBP.Quartz.Scheduler",
+        "exe_name": "Vtb.Cbp.Quartz.Scheduler",
+        "name": "Vtb.Cbp.Quartz.Scheduler",
+        "version": "14.6.22"
+      },
+      {
+        "description": "Consumer Host Api",
+        "exe_name": "VTB.CBP.ConsumerHost.Api",
+        "name": "Vtb.Cbp.ConsumerHost.Api",
+        "version": "14.6.91"
+      },
+      {
+        "description": "DealsCache Api",
+        "exe_name": "Vtb.Cbp.DealsCache.Api",
+        "name": "Vtb.Cbp.DealsCache.Api",
+        "version": "14.6.20"
+      },
+      {
+        "description": "MKK Mdm Integration",
+        "exe_name": "Vtb.IntegrationMdm.Services.Mkk.Service",
+        "name": "Vtb.IntegrationMdm.Services.Mkk",
+        "version": "14.1.13"
+      },
+      {
+        "description": "CapitalAgent service",
+        "exe_name": "Vtb.Contacts.CapitalAgent.Api.Host",
+        "name": "Vtb.Contacts.CapitalAgent.Api.Host",
+        "version": "14.1.13"
+      },
+      {
+        "description": "Clients Sheduler Service",
+        "exe_name": "Vtb.Clients.Scheduler.Host",
+        "name": "Vtb.Clients.Services.Scheduler.Host",
+        "version": "14.5.16"
+      },
+      {
+        "description": "Salary Projects oracledb",
+        "exe_name": "VTB.SalaryProjects.OracleDbService",
+        "name": "VTB.SalaryProjects.OracleDbService",
+        "version": "14.5.65"
+      },
+      {
+        "description": "IntegrationMDM BlackLists",
+        "exe_name": "Vtb.IntegrationMdm.Services.BlackLists.Host",
+        "name": "Vtb.IntegrationMdm.Services.BlackLists",
+        "version": "14.2.8"
+      },
+      {
+        "description": "IntegrationMDM Message History",
+        "exe_name": "Vtb.IntegrationMdm.MessageHistory.Host",
+        "name": "Vtb.IntegrationMdm.MessageHistory.Host",
+        "version": "14.4.22"
+      },
+      {
+        "description": "Adapter For Mkk",
+        "exe_name": "Vtb.IntegrationMdm.Services.AdapterMkk.Host",
+        "name": "Vtb.IntegrationMdm.Services.AdapterMkk.Host",
+        "version": "14.5.35"
+      },
+      {
+        "description": "IntegrationMDM Message History",
+        "exe_name": "Vtb.Integration.MdmCabs.Service",
+        "name": "Vtb.Integration.Mdm.Cabs",
+        "version": "14.5.35"
+      },
+      {
+        "description": "Capital Agent Win Service",
+        "exe_name": "Vtb.Contacts.CapitalAgent.App.WinService",
+        "name": "Vtb.Contacts.CapitalAgent.App.WinService",
+        "topshelf": true,
+        "version": "14.1.2"
+      },
+      {
+        "description": "Meeting Service",
+        "exe_name": "VTB.Contacts.Services.Meetings.Service",
+        "name": "VTB.Contacts.Services.Meetings.Service",
+        "version": "14.6.44"
+      },
+      {
+        "description": "Additional Service. REST API for IBM MQ",
+        "exe_name": "Vtb.Services.IbmMqConductor",
+        "name": "Vtb.Services.IbmMqConductor",
+        "version": "1.0.0"
+      },
+      {
+        "description": "Tessa integration service",
+        "exe_name": "Vtb.Services.Tessa.Host",
+        "name": "Vtb.Services.Tessa.Host",
+        "version": "14.5.5"
+      },
+      {
+        "description": "Lead account reservation service",
+        "exe_name": "Vtb.Leads.AccountReservation.Host",
+        "name": "Vtb.Leads.AccountReservation.Host",
+        "version": "14.5.64"
+      },
+      {
+        "description": "Lead account reservation LKBO stub host service",
+        "exe_name": "Vtb.Leads.AccountReservation.LkBoStubHost",
+        "name": "Vtb.Leads.AccountReservation.LkBoStubHost",
+        "version": "14.5.64"
+      },
+      {
+        "description": "Service for creating leads from Email(Exchange)",
+        "exe_name": "Vtb.Leads.EmailLeadReceiver.Host",
+        "name": "Vtb.Leads.EmailLeadReceiver.Host",
+        "version": "14.6.38"
+      },
+      {
+        "description": "Service for DBO Integration",
+        "exe_name": "Vtb.Integration.Dbo.Api",
+        "name": "Vtb.Integration.Dbo.WebAPI",
+        "version": "14.5.13"
+      },
+      {
+        "description": "Contact Deduplication Service",
+        "exe_name": "Vtb.Contacts.Services.Deduplication",
+        "name": "Vtb.Contacts.Services.Deduplication",
+        "version": "14.6.11"
+      },
+      {
+        "description": "IntegrationDBO links",
+        "exe_name": "Vtb.Integration.Dbo2.Links.Host",
+        "name": "Vtb.Integration.Dbo.Links",
+        "version": "14.5.3"
+      },
+      {
+        "description": "Earn Api service",
+        "exe_name": "Vtb.Clients.Services.Earn.Api",
+        "name": "Vtb.Clients.Services.Earn.Api",
+        "version": "14.6.23"
+      },
+      {
+        "description": "Earn Scheduler service",
+        "exe_name": "Vtb.Clients.Services.Earn.Scheduler",
+        "name": "Vtb.Clients.Services.Earn.Scheduler",
+        "version": "14.6.22"
+      },
+      {
+        "description": "Csc Notifications Scheduler",
+        "exe_name": "VTB.GTB.Notification.Scheduler",
+        "name": "Vtb.Cbp.Services.Csc.NotificationScheduler",
+        "version": "14.6.116"
+      },
+      {
+        "description": "mq account info dbo",
+        "exe_name": "Vtb.Integration.MqWebApiBridge.Host",
+        "name": "Vtb.Integration.Mq.Dbo.AccountsInfo",
+        "version": "14.5.3"
+      }
+    ],
+    "win_scheduler": [
+      {
+        "name": "VTB.SalaryProjects.PlanService.SchedulerRunner",
+        "version": "14.6.22",
+        "xml_config_name": "VTB.SalaryProjects.PlanService.SchedulerRunner.WinScheduler.config"
+      }
+    ]
+  }
+}
