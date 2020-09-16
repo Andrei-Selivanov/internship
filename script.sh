@@ -1,14 +1,9 @@
 #!/bin/bash
 
 cd internship/
-sudo git fetch origin
-sudo git add version.json
-sudo git commit -am "update version"
-sudo git pull https://github.com/Andrei-Selivanov/internship
-sudo git reset --merge
-sudo git add version.json
-sudo git commit -am "update version"
-sudo git push https://github.com/Andrei-Selivanov/internship
-#sudo exec < 0 github_nickname
-#sudo exec < 0 github_pass
+#git fetch origin
+git pull git@github.com:Andrei-Selivanov/internship.git
+git add version.json
+git commit -am "update version"
+git push git@github.com:Andrei-Selivanov/internship.git
 cd ..
