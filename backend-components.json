@@ -23,7 +23,7 @@
         "artifact_id": "cross-sales-api-gateway",
         "group_id": "ru.vtb",
         "name": "cross-sales-api-gateway",
-        "version": "0.0.1"
+        "version": "0.0.3"
       },
       {
         "artifact_id": "cross-sales-npf-domain-service",
