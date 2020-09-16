@@ -10,6 +10,6 @@
   tasks:
       
       
-           - command: git clone {{ branch }}
-           - command: ./script.py internship/version.json {{ version }}
+           - command: git clone {{ my_branch }}
+           - command: ./version.py internship/backend-components.json {{ name }} {{ version }}
            - command: ./script.sh
