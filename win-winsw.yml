@@ -1,0 +1,17 @@
+---
+- name: Check and install winsw
+  hosts: win
+  tasks:
+    
+    - name: Check winsw
+      win_shell: where /R c:\winsw WinSW.NetCore31.x64.exe
+      args:
+        executable: cmd.exe
+      register: winsw_exist
+      ignore_errors: True
+
+    - name: Download winsw
+      win_get_url: 
+        url: https://github.com/winsw/winsw/releases/download/v2.10.2/WinSW.NetCore31.x64.exe 
+        dest: c:\winsw
+      when: winsw_exist is failed

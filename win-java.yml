@@ -3,7 +3,7 @@
   hosts: win
   tasks:
     - name: Check Java 13
-      win_shell: where javac
+      win_shell: where /R c:\openjdk13 java.exe
       args:
         executable: cmd.exe
       register: java_installed
@@ -26,7 +26,7 @@
     - name: Set Java 13 home environment
       win_path:
         name: JAVA_HOME
-        elements: C:\openjdk13\jdk-13
+        elements: C:\openjdk13\jdk-13;
         scope: machine
         state: present 
       when: java_installed is failed
@@ -34,7 +34,7 @@
     - name: Set Java 13 bin environment
       win_path: 
         name: PATH    
-        elements: %JAVA_HOME%\bin
+        elements: C:\openjdk13\jdk-13\bin;
         scope: machine
         state: present
       when: java_installed is failed

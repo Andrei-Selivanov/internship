@@ -1,0 +1,30 @@
+---
+- name: Check and install .Net Core 3.1
+  hosts: win
+  tasks:
+        - name: Check .Net Core 3.1
+          win_shell: where /R c:\dotnet_core_3.1 dotnet.exe
+          args:
+            executable: cmd.exe
+          register: dotnet_installed
+          ignore_errors: True
+
+        - name: Download .Net Core 3.1 installation script
+          win_get_url: 
+            url: https://dotnet.microsoft.com/download/dotnet-core/scripts/v1/dotnet-install.ps1
+            dest: C:\dotnet_core_3.1
+          when: dotnet_installed is failed
+
+        - name: Run installation script
+          win_shell: |
+            cd C:\dotnet_core_3.1
+            ./dotnet-install.ps1 -Channel 3.1 -InstallDir C:\dotnet_core_3.1
+          when: dotnet_installed is failed
+
+        - name: Set .Net Core environment
+          win_path: 
+            name: PATH    
+            elements: C:\dotnet_core_3.1
+            scope: machine
+            state: present
+          when: dotnet_installed is failed
