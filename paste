@@ -1,0 +1,1 @@
+Compare-Object -ReferenceObject ("3,100,19,56502 @Commit: 65f04fb6db7a5e198d05dbebd5c4ad21eb018f89") -DifferenceObject ((Get-Item -Path 'C:\dotnet_core_3.1\dotnet.exe').VersionInfo.ProductVersion)
