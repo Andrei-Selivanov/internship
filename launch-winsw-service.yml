@@ -1,0 +1,13 @@
+---
+- name: Launch test-service on winsw
+  hosts: win
+  tasks: 
+    
+    - name: Install and start test-service
+      win_shell: |
+        cd C:\winsw
+        .\winsw install
+        .\winsw start
+      args:
+        executable: powershell.exe
+        

@@ -3,23 +3,25 @@
   hosts: win
   tasks:
         - name: Check .Net Core 3.1
-          win_shell: where /R c:\dotnet_core_3.1 dotnet.exe
+          win_shell: |
+            Compare-Object -ReferenceObject ('3,100,19,56502 @Commit: 65f04fb6db7a5e198d05dbebd5c4ad21eb018f89') -DifferenceObject ((Get-Item -Path 'C:\dotnet_core_3.1\dotnet.exe').VersionInfo.ProductVersion)
           args:
-            executable: cmd.exe
+            executable: powershell.exe
           register: dotnet_installed
           ignore_errors: True
 
-        - name: Download .Net Core 3.1 installation script
+        - name: Download .Net Core 3.1 
           win_get_url: 
-            url: https://dotnet.microsoft.com/download/dotnet-core/scripts/v1/dotnet-install.ps1
-            dest: C:\dotnet_core_3.1
-          when: dotnet_installed is failed
+            url: https://download.visualstudio.microsoft.com/download/pr/28a2c4ff-6154-473b-bd51-c62c76171551/ea47eab2219f323596c039b3b679c3d6/dotnet-sdk-3.1.100-win-x64.zip
 
-        - name: Run installation script
-          win_shell: |
-            cd C:\dotnet_core_3.1
-            ./dotnet-install.ps1 -Channel 3.1 -InstallDir C:\dotnet_core_3.1
-          when: dotnet_installed is failed
+            dest: C:\dotnet_core_3.1\
+          when: dotnet_installed is failed or dotnet_installed == false
+
+        - name: Unzip .Net Core 3.1 Archive
+          win_unzip:
+            src: C:\dotnet_core_3.1\dotnet-sdk-3.1.100-win-x64.zip
+            dest: C:\dotnet_core_3.1
+          when: dotnet_installed is failed or dotnet_installed == false
 
         - name: Set .Net Core environment
           win_path: 
@@ -27,4 +29,4 @@
             elements: C:\dotnet_core_3.1
             scope: machine
             state: present
-          when: dotnet_installed is failed
+          when: dotnet_installed is failed or dotnet_installed == false

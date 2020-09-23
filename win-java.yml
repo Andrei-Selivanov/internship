@@ -3,9 +3,9 @@
   hosts: win
   tasks:
     - name: Check Java 13
-      win_shell: where /R c:\openjdk13 java.exe
+      win_shell: Compare-Object -ReferenceObject 13 -DifferenceObject ((Get-Item -Path "C:\openjdk13\jdk-13\bin\java.exe").VersionInfo.ProductVersion)
       args:
-        executable: cmd.exe
+        executable: powershell.exe
       register: java_installed
       ignore_errors: True
     
@@ -13,7 +13,7 @@
       win_get_url:
         url: https://download.java.net/java/GA/jdk13/5b8a42f3905b406298b72d750b6919f6/33/GPL/openjdk-13_windows-x64_bin.zip
         dest: C:\openjdk13\openjdk-13_windows-x64_bin.zip
-      when: java_installed is failed
+      when: java_installed is failed or java_installed == false
 
     - name: Extract Java 13 archive
       win_unzip: 
@@ -21,7 +21,7 @@
         dest: C:\openjdk13
        #recurse: yes 
        #delete_archive: yes
-      when: java_installed is failed
+      when: java_installed is failed or java_installed == false
     
     - name: Set Java 13 home environment
       win_path:
@@ -29,7 +29,7 @@
         elements: C:\openjdk13\jdk-13;
         scope: machine
         state: present 
-      when: java_installed is failed
+      when: java_installed is failed or java_installed == false
    
     - name: Set Java 13 bin environment
       win_path: 
@@ -37,4 +37,4 @@
         elements: C:\openjdk13\jdk-13\bin;
         scope: machine
         state: present
-      when: java_installed is failed
+      when: java_installed is failed or java_installed == false
