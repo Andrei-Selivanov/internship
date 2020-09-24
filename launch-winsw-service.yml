@@ -7,11 +7,18 @@
       win_service: 
         name: test-java-service
       register: service_info
+    
+    - name: Stop test-service
+      win_service:
+        name: test-java-service
+        state: stopped
+      when: service_info == true
 
     - name: Remove test-service
       win_service:
         name: test-java-service
         state: absent
+      when: service_info == true
 
     - name: Install and start test-service
       win_shell: |
