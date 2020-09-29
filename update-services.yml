@@ -1,0 +1,48 @@
+---
+- name: Update services
+  hosts: win
+  tasks: 
+    - name: Check test-service
+      win_service: 
+        name: "{{ item }}"
+      register: service_info
+      loop:
+      - "{{ services_names }}"
+      when: file_exists == false
+    
+    - name: Stop test-service
+      win_service:
+        name: "{{ item }}"
+        state: stopped
+      loop: 
+      - "{{ services_names }}"
+      when: service_info == true and file_exists == false
+
+    - name: Remove test-service
+      win_service:
+        name: "{{ item }}"
+        state: absent
+      loop:
+      - "{{ services_names }}"
+      when: service_info == true and file_exists == false
+
+    - name: Install test-service
+      win_shell: |
+        cd "{{ services_path }}"\"{{ item }}"
+        .\winsw install
+      args:
+        executable: powershell.exe
+      loop: 
+      - "{{ services_names }}"
+      when: file_exists == false
+   
+    - name: Start test-service
+      win_shell: |
+        .\winsw start
+      args:
+       	executable: powershell.exe
+      loop: 
+      -	"{{ services_names }}"
+      when: file_exists	== false
+
+ 
