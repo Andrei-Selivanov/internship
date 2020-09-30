@@ -1,0 +1,5 @@
+---
+- name: Check and install all needed services
+  hosts: win
+  roles: 
+    -
