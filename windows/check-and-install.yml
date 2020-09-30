@@ -1,0 +1,81 @@
+---
+- name: Check services version and update service if file version updated
+  hosts: win
+  vars:
+    services_path: # path to services on Win machine
+    services_names:
+      # list with names of each service
+  tasks:
+
+    - name: Display the version.json file content
+      win_shell: type version.json
+      args:
+        executable: powershell.exe
+      register: result
+ 
+    - name: Save json data to a variable
+      set_fact: 
+        jsondata: "{{ result.stdout | from_json }}"
+      
+    - name: Save list of sevices versions into a variable
+      set_fact: 
+        service_version: "{{ jsondata | json_query(jmesquery) }}
+      vars:
+        jmesquery: '{{ item }}'
+      loop: 
+      - "{{ services_names }}"
+   
+    - name: Get list of exe services versions
+      win_file_version:
+        path: "{{ services_path }}"\"{{ item }}'\"{{ item }}".exe 
+      register: exe_versions
+      loop:
+      - "{{ services_names }}"
+
+    - name: Save list of exe services versions into a variable
+      set_fact: 
+        services_exe_versions: "{{ item }}"
+      loop: 
+      - "{{ exe_versions }}"
+
+    - name: Compare service version in json with version in exe file
+        register: different_version
+      when: item[0].value != item[1].value
+      loop: 
+      - "{{ services_versions }}"
+      - "{{ exe_versions }}"
+      
+    - name: Check test-service
+      win_service: 
+        name: "{{ item }}"
+      register: service_info
+      loop:
+      - "{{ services_names }}"
+      when: different_version == true
+    
+    - name: Stop test-service
+      win_service:
+        name: "{{ item }}"
+        state: stopped
+      loop: 
+      - "{{ services_names }}"
+      when: service_info == true and different_version == true
+
+    - name: Remove test-service
+      win_service:
+        name: "{{ item }}"
+        state: absent
+      loop:
+      - "{{ services_names }}"
+      when: service_info == true and different_version == true
+
+    - name: Install and start test-service
+      win_shell: |
+        cd "{{ services_path }}"\"{{ item }}"
+        .\winsw install
+        .\winsw start
+      args:
+        executable: powershell.exe
+      loop: 
+      - "{{ services_names }}
+      when: different_version == true
