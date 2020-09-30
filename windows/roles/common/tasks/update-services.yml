@@ -1,0 +1,32 @@
+---
+- name: Update needed services
+  hosts: win
+  tasks:
+    - name: Check test-service
+      win_service: 
+        name: "{{ need_update_service }}"
+      register: service_info
+    
+    - name: Stop test-service
+      win_service:
+        name: "{{ need_update_service }}"
+        state: stopped
+      when: service_info == true 
+
+    - name: Remove test-service
+      win_service:
+        name: "{{ need_update_service }}"
+        state: absent
+      when: service_info == true 
+
+    - name: Install test-service
+      win_shell: |
+        & "{{ services_path }}"\"{{ need_update_service }}"\winsw.exe install
+      args:
+        executable: powershell.exe
+
+     name: Start test-service
+      win_shell: |
+        & "{{ services_path }}"\"{{ need_update_service }}"\winsw.exe start
+      args:
+        executable: powershell.exe
