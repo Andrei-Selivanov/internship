@@ -1,6 +1,0 @@
-id: test-java-service
-name: test-java-service
-description: This is test java service.
-executable: c:\openjdk13\jdk-13\bin\java.exe
-arguments: >
-  -jar "c:\winsw\test-java-service.jar"
