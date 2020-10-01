@@ -13,6 +13,4 @@
     - name: Update needed services
       include_role:
         name: update-services
-      loop:
-      - "{{ services_names }}"
       when: file_exists == false 
