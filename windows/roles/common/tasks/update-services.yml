@@ -25,8 +25,15 @@
       args:
         executable: powershell.exe
 
-     name: Start test-service
+    - name: Start test-service
       win_shell: |
         & "{{ services_path }}"\"{{ need_update_service }}"\winsw.exe start
+      args:
+        executable: powershell.exe
+
+    - name: Create version file 
+      win_shell: |
+      cd "{{ services_path }}"\"{{ item }}"
+      echo > $((Get-Item "{{ services_path }}"\"{{ item	}}"\"{{ item }}".exe).VersionInfo.FileVersion)
       args:
         executable: powershell.exe
