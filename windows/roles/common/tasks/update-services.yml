@@ -4,36 +4,42 @@
   tasks:
     - name: Check test-service
       win_service: 
-        name: "{{ need_update_service }}"
+        name: "{{ services_name.key }}"
       register: service_info
     
     - name: Stop test-service
       win_service:
-        name: "{{ need_update_service }}"
+        name: "{{ services_name.key }}"
         state: stopped
       when: service_info == true 
 
     - name: Remove test-service
       win_service:
-        name: "{{ need_update_service }}"
+        name: "{{ services_name.key }}"
         state: absent
       when: service_info == true 
 
+    - name: Deploy configuration file
+      win_shell: |
+      echo $("{{ services_name.key }}": "{{ value_string }}" | ConvertTo-Json) >"{{ services_path }}"\"{{ services_name.key }}"\"{{ services_name.value }}" 
+      args:
+        executable: powershell.exe
+
     - name: Install test-service
       win_shell: |
-        & "{{ services_path }}"\"{{ need_update_service }}"\winsw.exe install
+        & "{{ services_path }}"\"{{ services_name.key }}"\winsw.exe install
       args:
         executable: powershell.exe
 
     - name: Start test-service
       win_shell: |
-        & "{{ services_path }}"\"{{ need_update_service }}"\winsw.exe start
+        & "{{ services_path }}"\"{{ services_name.key }}"\winsw.exe start
       args:
         executable: powershell.exe
 
     - name: Create version file 
       win_shell: |
-      cd "{{ services_path }}"\"{{ item }}"
-      echo > $((Get-Item "{{ services_path }}"\"{{ item	}}"\"{{ item }}".exe).VersionInfo.FileVersion)
+      cd "{{ services_path }}"\"{{ services_name.key }}"
+      echo > $((Get-Item "{{ services_path }}"\"{{ services_name.key }}"\"{{ services_name.key }}".exe).VersionInfo.FileVersion)
       args:
         executable: powershell.exe
