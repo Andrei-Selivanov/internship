@@ -3,8 +3,9 @@
   hosts: win
   vars:
     services_path: # absolute path to services on Win machine
-    services_names:
-      # list with names of each service
+    list_of_pairs: #[[ service_name1 , name_of_configuration_file1 ], ... etc ]
+    services_names: "{{ dict(list_of_pairs) }}"
+      # list of dictionaries with names of each service and name of their configuration file
     path_to_json_file: # absolute path to version.json
   roles:
     - parse-version-json
