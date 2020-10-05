@@ -4,18 +4,18 @@
   tasks:
     - name: Check test-service
       win_service: 
-        name: "{{ services_name.key }}"
+        name: "{{ services_name }}"
       register: service_info
     
     - name: Stop test-service
       win_service:
-        name: "{{ services_name.key }}"
+        name: "{{ services_name }}"
         state: stopped
       when: service_info == true 
 
     - name: Remove test-service
       win_service:
-        name: "{{ services_name.key }}"
+        name: "{{ services_name }}"
         state: absent
       when: service_info == true 
 
@@ -28,19 +28,19 @@
 
     - name: Install test-service
       win_shell: |
-        & "{{ services_path }}"\"{{ services_name.key }}"\winsw.exe install
+        & "{{ services_path }}"\"{{ services_name }}"\winsw.exe install
       args:
         executable: powershell.exe
 
     - name: Start test-service
       win_shell: |
-        & "{{ services_path }}"\"{{ services_name.key }}"\winsw.exe start
+        & "{{ services_path }}"\"{{ services_name }}"\winsw.exe start
       args:
         executable: powershell.exe
 
     - name: Create version file 
       win_shell: |
-      cd "{{ services_path }}"\"{{ services_name.key }}"
-      echo > $((Get-Item "{{ services_path }}"\"{{ services_name.key }}"\"{{ services_name.key }}".exe).VersionInfo.FileVersion)
+      cd "{{ services_path }}"\"{{ services_name }}"
+      echo > $((Get-Item "{{ services_path }}"\"{{ services_name }}"\"{{ services_name }}".exe).VersionInfo.FileVersion)
       args:
         executable: powershell.exe
