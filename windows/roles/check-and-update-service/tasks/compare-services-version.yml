@@ -1,0 +1,16 @@
+---
+- name: Compare services versions
+  hosts: win
+  tasks:
+    
+    - name: Check service version file
+      win_shell: Test-Path "{{ services_path }}"\"{{ item[0] }}"\"{{ item [1] }}"
+      args:
+        executable: powershell.exe
+      register: file_exists
+      loop: 
+      - "{{ services_names }}"
+      - "{{ service_version }}"
+
+  
+   

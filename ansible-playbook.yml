@@ -1,3 +1,4 @@
+---
 - name: Clone GitHub repo
   hosts: localhost
   vars:
@@ -13,3 +14,4 @@
            - command: git clone {{ my_branch }}
            - command: ./version.py internship/backend-components.json {{ name }} {{ version }}
            - command: ./script.sh
+

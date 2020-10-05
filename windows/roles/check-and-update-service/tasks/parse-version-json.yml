@@ -1,0 +1,22 @@
+---
+- name: Parse version.json
+  hosts: win 
+  tasks: 
+    - name: Display the version.json file content
+      win_shell: type version.json
+      args:
+        executable: powershell.exe
+      register: result
+ 
+    - name: Save json data to a variable
+      set_fact: 
+        jsondata: "{{ result.stdout | from_json }}"
+      
+    - name: Save list of sevices versions into a variable
+      set_fact: 
+        service_version: "{{ jsondata | json_query(jmesquery) }}
+      vars:
+        jmesquery: '{{ item }}'
+      loop: 
+      - "{{ services_names }}"
+
