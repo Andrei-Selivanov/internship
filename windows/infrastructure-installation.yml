@@ -1,8 +1,0 @@
----
-- name: Check and install all needed software
-  hosts: win
-  roles:
-    - win-java
-    - win-dotnet
-    - win-winsw
-    - launch-winsw-service
