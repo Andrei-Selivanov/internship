@@ -1,0 +1,2 @@
+config_name: test.json
+value_string:  {{ value_string }}

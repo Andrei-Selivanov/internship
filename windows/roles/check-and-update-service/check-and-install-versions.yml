@@ -10,6 +10,13 @@
     - parse-version-json
     - compare-services-versions
   post_tasks:
+    - name: Deploy configuration files
+      include_vars: "{{ services_ names }}"
+      template:
+        src: configs.j2
+        dest: "{{ path_to_files }}"\"{{ services_names }}"\"{{ config_name }}"
+      when: file_exists == false
+
     - name: Update needed services
       include_role:
         name: update-services

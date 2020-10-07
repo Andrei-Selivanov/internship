@@ -1,0 +1,2 @@
+config_name: azazaza.json
+value_string:  {{ value_string }}
