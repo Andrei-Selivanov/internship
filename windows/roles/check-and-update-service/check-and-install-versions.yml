@@ -12,10 +12,11 @@
   post_tasks:
     - name: Deploy configuration files
       include_vars: "{{ services_ names }}"
-      template:
+      win_template:
         src: configs.j2
-        dest: "{{ path_to_files }}"\"{{ services_names }}"\"{{ config_name }}"
-      when: file_exists == false
+        dest: "{{ path_to_files }}"\"{{ services_names }}"\"{{ item.path }}"
+      with_filetree: "{{ service_configs }}"
+      when: file_exists == false and item.state == 'file'
 
     - name: Update needed services
       include_role:

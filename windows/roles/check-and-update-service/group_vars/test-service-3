@@ -1,2 +1,2 @@
-config_name: test.json
+service_configs: files/test-service-3/ #folder with configuration files tree
 value_string:  {{ value_string }}
