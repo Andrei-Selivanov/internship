@@ -1,0 +1,2 @@
+app_name: first-service
+app_version: "{{ app_version }}"

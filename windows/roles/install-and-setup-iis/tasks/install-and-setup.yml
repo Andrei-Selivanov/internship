@@ -1,0 +1,35 @@
+---
+- name: Install and setup IIS
+  hosts: win
+  vars: 
+    ansible_site_path: #full path to folder with webapps sites
+  tasks:
+
+    - name: Install IIS
+      win_feature: 
+        name: Web-server
+        state: present
+        restart: no
+        include_sub_features: yes
+        include_managment_tools: yes
+
+    - name: Default website index
+      win_template:
+        src: templates/index.j2
+        dest: "{{ ansible_site_path }}"\"{{ app_name }}"
+
+    - name: Start acme IIS site
+      win_iis_server:
+        name: "{{ app_name }}"
+        state: started
+        port:
+          - 80
+          - 443
+        ip: 127.0.0.1
+        localhost: "{{ app_localhost_name }}"
+        application_pool: acme
+      physical_path: "{{ ansible_site_path }}"\"{{ app_name }}"
+    
+ 
+
+   

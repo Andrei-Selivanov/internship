@@ -1,0 +1,2 @@
+app_name: second-service
+app_version: "{{ app_version }}"

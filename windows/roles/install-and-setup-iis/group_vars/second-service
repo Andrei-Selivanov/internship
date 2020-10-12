@@ -1,0 +1,3 @@
+app_name: second-service
+app_localhost_name: first-service/second-service
+

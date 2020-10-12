@@ -1,0 +1,2 @@
+app_name: third-service
+app_version: "{{ app_version }}"
