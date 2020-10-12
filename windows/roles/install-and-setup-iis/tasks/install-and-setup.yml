@@ -2,7 +2,7 @@
 - name: Install and setup IIS
   hosts: win
   vars: 
-    ansible_site_path: #full path to folder with webapps sites
+    ansible_site_path: "C:\\webapps" #full path to folder with webapps sites
   tasks:
 
     - name: Install IIS
@@ -11,15 +11,15 @@
         state: present
         restart: no
         include_sub_features: yes
-        include_managment_tools: yes
+        include_managment_tools: no
 
     - name: Default website index
       win_template:
         src: templates/index.j2
-        dest: "{{ ansible_site_path }}"\"{{ app_name }}"
+        dest: "{{ ansible_site_path }}\\{{ app_name }}"
 
     - name: Start acme IIS site
-      win_iis_server:
+      win_iis_website:
         name: "{{ app_name }}"
         state: started
         port:
@@ -28,8 +28,19 @@
         ip: 127.0.0.1
         localhost: "{{ app_localhost_name }}"
         application_pool: acme
-      physical_path: "{{ ansible_site_path }}"\"{{ app_name }}"
-    
+        physical_path: "{{ ansible_site_path }}\\{{ app_name }}"
+
+    - name: Add a HTTPS binding
+      win_iis_webbinding:
+        name: "{{ app_name }}"
+        protocol: https
+        port:
+          - 80
+          - 443
+        ip: 127.0.0.1
+        certificate_hash: D84472CAACB8F010DDCE24BB2AA17EEC801AAE88
+        state: present
+           
  
 
    

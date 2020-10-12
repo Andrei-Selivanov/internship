@@ -1,19 +1,8 @@
----
+--
 - name: Setup webapps for IIS 
   hosts: win
   tasks:
    
-    - name: Get webapp files to deploy
-      win_copy:
-        src: files/"{{ app_name }}"
-        dest: "{{ ansible_site_path }}"\"{{ app_name }}"
-
-    - name: Unpack webapp files to deploy
-      win_unzip:
-        src: "{{ ansible_site_path }}"\"{{ app_name }}"\"{{ app_name }}".zip
-        dest: "{{ ansible_site_path }}"\"{{ app_name }}"
-        creates: "{{ ansible_site_path }}"\"{{ app_name }}"\index.html
-
     - name: Return info about webapp
       win_iis_webapppool:
         name: "{{ app_name }}" 
@@ -25,6 +14,24 @@
         name: "{{ app_name }}"
         state: stopped
       when: managedRuntimeVersion != "{{ app_version }}"
+
+    - name: Get webapp files to deploy
+      win_copy:
+        src: files/"{{ app_name }}"
+        dest: "{{ ansible_site_path }}"\"{{ app_name }}"
+
+    - name: Unpack webapp files to deploy
+      win_unzip:
+        src: "{{ ansible_site_path }}\\{{ app_name }}\\{{ app_name }}".zip
+        dest: "{{ ansible_site_path }}\\{{ app_name }}"
+        creates: "{{ ansible_site_path }}\\{{ app_name }}"\index.html
+
+    - name: Add webapp on IIS
+      win_iis_webappliation:
+        name: "{{ app_name }}"
+        site: "{{ app_name }}"
+        state: present
+        physical_path: "{{ ansible_site_path }}\\{{ app_name }}"
     
     - name: Create a new version webapp pool
       win_iis_webapppool:
