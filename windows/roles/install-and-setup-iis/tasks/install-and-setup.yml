@@ -11,34 +11,51 @@
         state: present
         restart: no
         include_sub_features: yes
-        include_managment_tools: no
+        include_managment_tools: yes
 
     - name: Default website index
       win_template:
         src: templates/index.j2
-        dest: "{{ ansible_site_path }}\\{{ app_name }}"
+        dest: "{{ ansible_site_path }}\\webapps_site"
 
     - name: Start acme IIS site
       win_iis_website:
-        name: "{{ app_name }}"
+        name: Acme
         state: started
         port:
           - 80
           - 443
         ip: 127.0.0.1
-        localhost: "{{ app_localhost_name }}"
+        hostname: localhost
         application_pool: acme
-        physical_path: "{{ ansible_site_path }}\\{{ app_name }}"
+        physical_path: "{{ ansible_site_path }}\\webapps_site"
+
+    - name: Check SSL certificate
+      win_shell: |
+      (Get-ChildItem -Path cert:\LocalMachine\My _SSLServerAuthentication -DnsName "localhost").Thumbprint
+      args: 
+        executable: powershell.exe
+      register: thumbprint
+      ignore_errors: true 
+
+    - name: Create SSL certificate if it not exists
+      win_shell: |
+      NewSelfSignedCertificate -Subject "localhost" -TextExtension @(2.5.29.17={text}DNS="locahost"&IPAddress=127.0.0.1&IPAddress=::1") -KeyAlgorithm RSA -KeyLength 2048 -CertStoreLocation "Cert:\LocalMachine\My"
+      (Get-ChildItem -Path cert:\LocalMachine\My _SSLServerAuthentication -DnsName "localhost").Thumbprint
+      args:
+        executable: powershell.exe
+      register: thumbprint
+      when: thumbprint is failed
 
     - name: Add a HTTPS binding
       win_iis_webbinding:
-        name: "{{ app_name }}"
+        name: acme
         protocol: https
         port:
           - 80
           - 443
         ip: 127.0.0.1
-        certificate_hash: D84472CAACB8F010DDCE24BB2AA17EEC801AAE88
+        certificate_hash: "{{ thumbprint }}"
         state: present
            
  

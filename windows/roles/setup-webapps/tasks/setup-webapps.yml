@@ -29,7 +29,7 @@
     - name: Add webapp on IIS
       win_iis_webappliation:
         name: "{{ app_name }}"
-        site: "{{ app_name }}"
+        site: "{{ app_localhost_name }}"
         state: present
         physical_path: "{{ ansible_site_path }}\\{{ app_name }}"
     
