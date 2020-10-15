@@ -1,0 +1,2 @@
+---
+- include: install-postgresql12.yml
