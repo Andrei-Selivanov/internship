@@ -1,0 +1,4 @@
+---
+postgresql_global_config_options:
+  - option: data_directory
+    value: "{{ postgresql_data_dir }}"
