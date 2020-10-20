@@ -1,0 +1,15 @@
+---
+- name: Ensure that users are present
+  postgresql_user:
+    name: "{{ item.name }}"
+    password: "{{ item.password | default(omit) }}"
+    priv: "{{ item.priv | default(omit) }}"
+    db: "{{ item.db | default(omit) }}"
+    login_host: "{{ item.host | default('localhost') }}"
+    login_user: "{{ item.login_user }}"
+    login_password: "{{ itme.login_pass | default(omit) }}"
+    state: present
+  loop: 
+    - "{{ postgresql_users }}"
+  become: true
+  become_user: "{{ postgresql_user }}"

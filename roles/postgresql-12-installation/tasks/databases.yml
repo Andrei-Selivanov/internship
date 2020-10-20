@@ -1,0 +1,16 @@
+---
+   - name: Ensure that databases are present
+       postgresql_db:
+         name: "{{ item.name }}" 
+         lc_collate: en_US.UTF-8
+         lc_ctype: en_US.UTF-8
+         encoding: UTF-8
+         login_host: localhost
+         login_password: "{{ item.login_pass | default(omit) }}"
+         login_user: "{{ item.login_user | default('root') }}"
+         owner: root
+         state: present
+       loop:
+       - "{{ postrgesql_databases }}"
+       become: true
+       become_user: "{{ postgresql_user }}"
