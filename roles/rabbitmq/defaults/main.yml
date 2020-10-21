@@ -1,0 +1,6 @@
+---
+rabbitmq_config_file_path: /etc/rabbitmq/rabbitmq.conf
+rabbitmq_conf_extra_settings:
+rabbitmq_env_variables_file_path: /etc/rabbitmq/rabbitmq-env.conf
+rabbitmq_home_path: /var/lib/rabbitmq/
+rabbitmq_bin_path: /usr/lib/rabbitmq/bin

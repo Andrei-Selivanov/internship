@@ -1,0 +1,13 @@
+---
+- name: create RabbitMQ users
+  rabbitmq_user:
+    user: "{{ item.user | default('guest') }}"
+    password: "{{ item.password | default(omit) }}"
+    vhost: "{{ item.vhost | default(omit) }}"
+    configure_priv: "{{ item.configure_priv | default('.*') }}"
+    configure_read: "{{ item.cofigure_read | default('.*') }}"
+    configure_write: "{{ item.configure_write | default('.*') }}"
+    tags: "{{ item.tags | default(omit) }}"
+    state: present
+   loop:
+     "{{ rabbitmq_users_list }}"

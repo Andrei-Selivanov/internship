@@ -1,0 +1,8 @@
+---
+- name: Enable RabbitMQ plugins
+  rabbitmq_plugin:
+    names: "{{ item.name }}"
+    state: present
+  loop:
+    - "{{ rabbitmq_plugins }}"
+

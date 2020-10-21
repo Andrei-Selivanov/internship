@@ -1,0 +1,38 @@
+---
+- name: Installation RabbitMQ on machine
+  hosts: localhost
+  tasks:
+    - name: Copy rpm files to /tmp
+      copy:
+        src: "files/{{ item }}"
+        dest: "/tmp/{{ item }}"
+      with_items:
+      - logrotate-3.8.6-19.el7.x86_64.rpm
+      - socat-1.7.3.2-2.el7.x86_64.rpm
+      - erlang-22.3.4.12-1.el6.x86_64.rpm
+      - rabbitmq-server-3.8.9-1.el7.noarch.rpm
+
+     - name: Install all needed packages
+       yum: 
+         name: "/tmp/{{ item }}"
+         state: present
+       with_items:
+       - logrotate-3.8.6-19.el7.x86_64.rpm
+       - socat-1.7.3.2-2.el7.x86_64.rpm
+       - erlang-22.3.4.12-1.el6.x86_64.rpm
+       - rabbitmq-server-3.8.9-1.el7.noarch.rpm
+       become: true
+
+     - name: Configurate RabbitMQ
+       template: 
+         src: rabbitmq.conf.j2
+         dest: "{{ rabbitmq_config_file_path }}"
+         mode: "0644"
+       notify: restart rabbitmq
+    
+     - name: Ensure RabbitMQ server is started and enabled
+       service:
+         name: rabbitmq-server
+         state: restarted
+         enabled: true
+       

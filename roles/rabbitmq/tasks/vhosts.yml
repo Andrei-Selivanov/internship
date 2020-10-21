@@ -1,0 +1,8 @@
+---
+- name: Manage Vhosts
+  rabbitmq_vhost:
+    name: "{{ item.name }}"
+    tracing: "{{ item.tracing | default(omit) }}"
+    state: present
+  loop:
+    - "{{ vhosts_list }}"
