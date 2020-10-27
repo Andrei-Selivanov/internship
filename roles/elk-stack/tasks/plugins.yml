@@ -1,0 +1,29 @@
+---
+- name: Enable ELK stack plugins
+  hosts: localhost
+  tasks:
+
+    - name: Enable Elasticsearch plugins
+      elasticsearch_plugin:
+        name: "{{ item.name }}"
+        version: "{{ item.version }}"
+        state: present
+      loop:
+        - "{{ elasticsearch_plugins_list }}"
+
+    - name: Enable Logstash plugins
+      logstash_plugin:
+        name: "{{ item.name }}"
+        version: "{{ item.version }}"
+        state: present
+      loop:
+        - "{{ logstash_plugins_list }}"
+
+    - name: Enable Kibana plugins
+      kibana_plugin:
+        name: "{{ item.name }}"
+        version: "{{ item.version }}"
+        state: present
+      loop:
+        - "{{ kibana_plugins_list }}"
+  

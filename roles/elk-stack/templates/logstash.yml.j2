@@ -1,0 +1,4 @@
+{% for setting, value in logstash_conf_settings.items() %}
+{{ setting }} = {{ value }}
+{% end for %}
+

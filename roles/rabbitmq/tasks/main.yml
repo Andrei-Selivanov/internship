@@ -1,0 +1,6 @@
+---
+- include: install.yml
+  import_tasks: vhosts.yml
+  import_tasks: users.yml
+  import_tasks: plugins.yml
+  
