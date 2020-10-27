@@ -1,8 +1,4 @@
 ---
-- name: Enable ELK stack plugins
-  hosts: localhost
-  tasks:
-
     - name: Enable Elasticsearch plugins
       elasticsearch_plugin:
         name: "{{ item.name }}"

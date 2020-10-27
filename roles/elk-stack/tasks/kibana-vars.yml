@@ -1,0 +1,6 @@
+---
+kibana_config_file_path: /etc/kibana/kibana.yml
+path_data: /var/lib/kibana
+logging_dest: /var/log/kibana
+elasticsearch_username: kibana-server
+elasticsearch_password: kibanapassword

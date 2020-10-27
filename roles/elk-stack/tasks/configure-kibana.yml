@@ -1,0 +1,15 @@
+---
+    - include_vars: kibana-vars.yml
+
+    - name: Configure Kibana
+      template:
+        src: kibana.yml.j2
+        dest: "{{ kibana_config_file_path }}"
+        mode: "0644"
+      become: yes
+
+    - name: Restart Kibana after configuration
+      service:
+        name: kibana
+        state: restarted
+        enabled: true

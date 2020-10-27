@@ -3,14 +3,12 @@ elasticsearch_config_file_path: /etc/elasticsearch/elasticsearch.yml
 elasticsearch_conf_settings:
   path.data: /var/lib/elasticsearch
   path.logs: /var/log/elasticsearch
-  network.host: 192.168.0.1
+  
 
 logstash_config_file_path: /etc/logstash/logstash.yml
 logstash_conf_settings:
   path.data: /var/lib/logstash
   path.config: /etc/logstash/conf.d
-  path.plugins: /usr/share/logstash
-  path.settings: /etc/logstash
   path.logs: /var/log/logstash
   xpack.monitoring.elasticsearch.password: logstashpassword
   

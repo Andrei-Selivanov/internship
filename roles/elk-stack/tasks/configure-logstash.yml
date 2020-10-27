@@ -1,0 +1,16 @@
+---
+    - include_vars: logstash-vars.yml
+
+    - name: Configure Logstash
+      template: 
+        src: logstash.yml.j2
+        dest: "{{ logstash_config_file_path }}"
+        mode: "0644"
+      become: yes
+   
+    - name: Restart Logstash after configuration
+      service:
+        name: logstash
+        state: restarted
+        enabled: true
+

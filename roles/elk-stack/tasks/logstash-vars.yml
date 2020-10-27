@@ -1,0 +1,6 @@
+---
+logstash_config_file_path: /etc/logstash/logstash.yml
+path_data: /var/lib/logstash
+path_config: /etc/logstash/conf.d
+path_logs: /var/log/logstash
+xpack_monitoring_elasticsearch_password: logstashpassword

@@ -1,0 +1,44 @@
+---
+#- name: Installation ELK on machine and configure Elasticstack
+#  hosts: localhost
+    - include_vars: elasticsearch-vars.yml
+  
+    - name: Copy rpm files to /tmp
+      copy:
+        src: "files/{{ item }}"
+        dest: "/tmp/{{ item }}"
+      with_items:
+      - elasticsearch-7.9.3-x86_64.rpm
+      - logstash-7.9.3.rpm
+      - kibana-7.9.3-x86_64.rpm
+
+    - name: Install rpms
+      yum:
+        name: "/tmp/{{ item }}"
+        state: present
+      with_items:
+      - elasticsearch-7.9.3-x86_64.rpm
+      - logstash-7.9.3.rpm
+      - kibana-7.9.3-x86_64.rpm
+      become: yes 
+
+    - name: Check if Java installed on machine for Elasticsearch
+      yum: 
+        name: java
+        state: present
+    
+    - name: Configure Elasticsearch
+      template:
+        src: elasticsearch.yml.j2
+        dest: "{{ elasticsearch_config_file_path }}"
+        mode: "0644"
+      become: yes
+
+    - name: Restart Elasticsearch service after configuration
+      service:
+        name: elasticsearch
+        state: restarted
+        enabled: true
+      
+ 
+       

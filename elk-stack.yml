@@ -1,0 +1,5 @@
+---
+- name: Use ELK stack role
+  hosts: localhost
+  roles:
+    - role: elk-stack

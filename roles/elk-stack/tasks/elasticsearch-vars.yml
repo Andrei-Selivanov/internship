@@ -1,0 +1,4 @@
+---
+elasticsearch_config_file_path: /etc/elasticsearch/elasticsearch.yml
+path_data: /var/lib/elasticsearch
+path_logs: /var/log/elasticsearch
