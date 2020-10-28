@@ -8,6 +8,10 @@
         mode: "0644"
       become: yes
 
+    - name: Give Kibana system user needed permisssions to write logs
+      shell: chown kibana:kibana -R "{{ logging_dest }}"
+      become: yes
+
     - name: Restart Kibana after configuration
       service:
         name: kibana
